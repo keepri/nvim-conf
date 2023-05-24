@@ -1,14 +1,12 @@
 local set = vim.keymap.set
 
-vim.g.mapleader = " "
-
 set("n", "<leader>kn", vim.cmd.Ex)
 set("n", "<leader>kv", ":NERDTreeToggle<CR>")
 
 -- move text
+set("n", "J", "mzJ`z")
 set("v", "J", ":m '>+1<CR>gv=gv") -- up
 set("v", "K", ":m '<-2<CR>gv=gv") -- down
-set("n", "J", "mzJ`z")
 -- set("n", "K", "mzK`z")
 
 -- navigation
@@ -20,8 +18,8 @@ set("n", "N", "Nzzzv")
 -- greatest remap ever, paste and keep le buf
 set("x", "<leader>p", [["_dP]])
 
-set({ "n", "v" }, "<leader>y", [["+y]])
 set("n", "<leader>Y", [["+Y]])
+set({ "n", "v" }, "<leader>y", [["+y]])
 set({ "n", "v" }, "<leader>d", [["_d]])
 
 set({ "n", "v" }, "<leader>f", vim.lsp.buf.format)
