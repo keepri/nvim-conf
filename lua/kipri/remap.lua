@@ -1,5 +1,7 @@
 local set = vim.keymap.set
 
+vim.g.mapleader = " "
+
 set("n", "<leader>kn", vim.cmd.Ex)
 set("n", "<leader>kv", ":NERDTreeToggle<CR>")
 

@@ -11,7 +11,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     end,
 })
 
-vim.g.mapleader = " "
 -- vim.g.netrw_liststyle = 3
 vim.opt.termguicolors = true
 
