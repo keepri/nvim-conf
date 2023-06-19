@@ -70,8 +70,8 @@ require('packer').startup(function(use)
             vim.g.NERDTreeWinSize = 40
             vim.g.NERDTreeMinimalUI = 1
             vim.g.NERDTreeDirArrowCollapsible = ''
-            vim.g.NERDTreeDirArrows = 0
-            vim.g.NERDTreeShowHidden = 0
+            vim.g.NERDTreeDirArrows = 1
+            vim.g.NERDTreeShowHidden = 1
             vim.g.NERDTreeAutoCenter = 1
             vim.g.NERDTreeShowLineNumbers = 1
         end
