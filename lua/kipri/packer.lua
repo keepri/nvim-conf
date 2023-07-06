@@ -64,18 +64,18 @@ require('packer').startup(function(use)
     use { 'theprimeagen/harpoon' }
     use { 'mbbill/undotree' }
     use { 'tpope/vim-fugitive' }
-    use {
-        'preservim/nerdtree',
-        config = function()
-            vim.g.NERDTreeWinSize = 40
-            vim.g.NERDTreeMinimalUI = 1
-            vim.g.NERDTreeDirArrowCollapsible = ''
-            vim.g.NERDTreeDirArrows = 1
-            vim.g.NERDTreeShowHidden = 1
-            vim.g.NERDTreeAutoCenter = 1
-            vim.g.NERDTreeShowLineNumbers = 1
-        end
-    }
+    -- use {
+    --     'preservim/nerdtree',
+    --     config = function()
+    --         vim.g.NERDTreeWinSize = 40
+    --         vim.g.NERDTreeMinimalUI = 1
+    --         vim.g.NERDTreeDirArrowCollapsible = ''
+    --         vim.g.NERDTreeDirArrows = 1
+    --         vim.g.NERDTreeShowHidden = 1
+    --         vim.g.NERDTreeAutoCenter = 1
+    --         vim.g.NERDTreeShowLineNumbers = 1
+    --     end
+    -- }
 
     use {
         "windwp/nvim-autopairs",

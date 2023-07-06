@@ -2,8 +2,9 @@ local set = vim.keymap.set
 
 vim.g.mapleader = " "
 
-set("n", "<leader>kn", vim.cmd.Ex)
-set("n", "<leader>kv", ":NERDTreeToggle<CR>")
+-- set("n", "<leader>kn", vim.cmd.Ex)
+set("n", "<leader>kv", vim.cmd.Ex)
+-- set("n", "<leader>kv", ":NERDTreeToggle<CR>")
 
 -- move text
 set("n", "J", "mzJ`z")
