@@ -8,9 +8,9 @@ set("n", "<leader>kv", vim.cmd.Ex)
 
 -- move text
 set("n", "J", "mzJ`z")
+-- set("n", "K", "mzK`z")
 set("v", "J", ":m '>+1<CR>gv=gv") -- up
 set("v", "K", ":m '<-2<CR>gv=gv") -- down
--- set("n", "K", "mzK`z")
 
 -- navigation
 set("n", "<C-d>", "<C-d>zz")
