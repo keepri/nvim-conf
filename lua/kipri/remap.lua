@@ -4,6 +4,8 @@ vim.g.mapleader = " "
 
 -- set("n", "<leader>kn", vim.cmd.Ex)
 set("n", "<leader>kv", vim.cmd.Ex)
+set("n", "<leader>ks", vim.cmd.Vex)
+set("n", "<leader>kb", vim.cmd.Hex)
 -- set("n", "<leader>kv", ":NERDTreeToggle<CR>")
 
 -- move text

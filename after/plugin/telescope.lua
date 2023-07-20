@@ -20,7 +20,7 @@ set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]ea
 
 set('n', '<C-p>', builtin.git_files, {})
 set('n', '<leader>kf', builtin.find_files, {})
-set('n', '<leader>ks', function() builtin.grep_string({ search = vim.fn.input("Grep > ") }) end)
+-- set('n', '<leader>ks', function() builtin.grep_string({ search = vim.fn.input("Grep > ") }) end)
 set('n', '<leader>kw', function() builtin.live_grep() end) -- { grep_open_files = true }
 set("n", "<leader>?", function() builtin.oldfiles() end, { desc = '[?] Find recently opened files' })
 -- set('n', '<leader>sw', function() builtin.grep_string() end, { desc = '[S]earch current [W]ord' })
