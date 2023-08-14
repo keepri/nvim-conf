@@ -27,7 +27,6 @@ set("n", "<leader>Y", [["+Y]])
 set({ "n", "v" }, "<leader>y", [["+y]])
 set({ "n", "v" }, "<leader>d", [["_d]])
 
-set({ "n", "v" }, "<leader>f", vim.lsp.buf.format)
 set({ "n", "v" }, "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Diagnostic keymaps

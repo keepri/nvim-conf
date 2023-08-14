@@ -30,8 +30,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 lsp.configure('tsserver', {
-    on_attach = function(_, _)
-    end,
     capabilities = capabilities,
     settings = {
         completions = {
@@ -52,7 +50,6 @@ lsp.configure('tsserver', {
 --     }
 -- })
 
-
 lsp.setup_nvim_cmp({ mapping = cmp_mappings })
 
 lsp.set_preferences({
@@ -68,12 +65,14 @@ lsp.set_preferences({
 ---@diagnostic disable-next-line: unused-local
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
+    local set = vim.keymap.set
 
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-    vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+    set("n", "gd", vim.lsp.buf.definition, opts)
+    set("n", "K", vim.lsp.buf.hover, opts)
+    set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+    set("n", "<leader>rn", vim.lsp.buf.rename)
+    set("n", "<leader>ca", vim.lsp.buf.code_action)
+    set({ "n", "v" }, "<leader>f", vim.lsp.buf.format)
 end)
 
 lsp.nvim_workspace({
