@@ -1,11 +1,6 @@
 require('packer').startup(function(use)
     -- Packer can manage itself
     use { 'wbthomason/packer.nvim' }
-    use { 
-        'phpactor/phpactor',
-        run = "composer install"
-    }
-    use { 'stephpy/vim-php-cs-fixer' }
 
     use {
         'nvim-telescope/telescope.nvim',
@@ -110,6 +105,13 @@ require('packer').startup(function(use)
     }
 
     use { 'feline-nvim/feline.nvim' }
+
+    use { 
+        'phpactor/phpactor',
+        run = "composer install"
+    }
+    use { 'captbaritone/better-indent-support-for-php-with-html' }
+    use { 'stephpy/vim-php-cs-fixer' }
 end)
 
 -- Automatically source and re-compile packer whenever you save this init.lua
