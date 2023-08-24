@@ -2,8 +2,38 @@ local lsp = require('lsp-zero')
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
 local _ = require("luasnip.loaders.from_vscode").lazy_load()
+local lspconfig = require('lspconfig')
 
 lsp.preset('recommended')
+
+lspconfig.emmet_language_server.setup({
+    filetypes = { 
+        "html",
+        "css",
+        "scss",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "php",
+    },
+    init_options = {
+        --- @type table<string, any> https://docs.emmet.io/customization/preferences/
+        preferences = {},
+        --- @type "always" | "never" defaults to `"always"`
+        showexpandedabbreviation = "always",
+        --- @type boolean defaults to `true`
+        showabbreviationsuggestions = true,
+        --- @type boolean defaults to `false`
+        showsuggestionsassnippets = false,
+        --- @type table<string, any> https://docs.emmet.io/customization/syntax-profiles/
+        syntaxprofiles = {},
+        --- @type table<string, string> https://docs.emmet.io/customization/snippets/#variables
+        variables = {},
+        --- @type string[]
+        excludelanguages = {},
+    },
+})
 
 lsp.ensure_installed({
     'tsserver',

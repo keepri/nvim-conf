@@ -1,6 +1,11 @@
 require('packer').startup(function(use)
     -- Packer can manage itself
     use { 'wbthomason/packer.nvim' }
+    use { 
+        'phpactor/phpactor',
+        run = "composer install"
+    }
+    use { 'stephpy/vim-php-cs-fixer' }
 
     use {
         'nvim-telescope/telescope.nvim',
