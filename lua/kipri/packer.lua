@@ -19,11 +19,7 @@ require('packer').startup(function(use)
     use {
         'olivercederborg/poimandres.nvim',
         config = function()
-            require('poimandres').setup {
-                -- leave this setup function empty for default config
-                -- or refer to the configuration section
-                -- for configuration options
-            }
+            require('poimandres').setup {}
         end
     }
 
@@ -108,10 +104,9 @@ require('packer').startup(function(use)
 
     use { 
         'phpactor/phpactor',
-        run = "composer install"
+        run = 'composer install',
     }
     use { 'captbaritone/better-indent-support-for-php-with-html' }
-    use { 'stephpy/vim-php-cs-fixer' }
 end)
 
 -- Automatically source and re-compile packer whenever you save this init.lua
