@@ -3,11 +3,12 @@ local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
 local _ = require("luasnip.loaders.from_vscode").lazy_load()
 local lspconfig = require('lspconfig')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 lsp.preset('recommended')
 
 lspconfig.emmet_language_server.setup({
-    filetypes = { 
+    filetypes = {
         "html",
         "css",
         "scss",
@@ -35,6 +36,20 @@ lspconfig.emmet_language_server.setup({
     },
 })
 
+lspconfig.phpactor.setup {
+    init_options = {
+        ["language_server_phpstan.enabled"] = true,
+        ["language_server_psalm.enabled"] = false,
+        ["language_server_php_cs_fixer.enabled"] = true,
+        ["language_server_php_cs_fixer.show_diagnostics"] = true,
+        ["language_server_worse_reflection.inlay_hints.enable"] = true,
+        ["language_server_worse_reflection.inlay_hints.params"] = true,
+        ["language_server_worse_reflection.inlay_hints.types"] = true,
+        ["code_transform.import_globals"] = true,
+        ["language_server_code_transform.import_globals"] = true,
+    }
+}
+
 lsp.ensure_installed({
     'tsserver',
     'eslint',
@@ -57,8 +72,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
     ["<C-Space>"] = cmp.mapping.complete(),
 })
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
 lsp.configure('tsserver', {
     capabilities = capabilities,
     settings = {
@@ -68,17 +81,16 @@ lsp.configure('tsserver', {
     }
 })
 
--- Fix Undefined global 'vim'
--- lsp.configure('sumneko_lua', {
---     capabilities = capabilities,
---     settings = {
---         Lua = {
---             diagnostics = {
---                 globals = { 'vim' }
---             }
---         }
---     }
--- })
+lsp.configure('sumneko_lua', {
+    capabilities = capabilities,
+    settings = {
+        lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+})
 
 lsp.setup_nvim_cmp({ mapping = cmp_mappings })
 
