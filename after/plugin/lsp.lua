@@ -3,6 +3,7 @@ local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
 local _ = require("luasnip.loaders.from_vscode").lazy_load()
 local lspconfig = require('lspconfig')
+local util = require('lspconfig/util')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 lsp.preset('recommended')
@@ -50,6 +51,20 @@ lspconfig.phpactor.setup {
     }
 }
 
+lspconfig.gopls.setup {
+    cmd = {"gopls", "serve"},
+    filetypes = {"go", "gomod"},
+    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        },
+    },
+}
+
 lsp.ensure_installed({
     'tsserver',
     'eslint',
@@ -59,10 +74,7 @@ lsp.ensure_installed({
     'jsonls',
 })
 
-cmp.event:on(
-    'confirm_done',
-    cmp_autopairs.on_confirm_done()
-)
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -137,4 +149,14 @@ vim.diagnostic.config({
         header = '',
         prefix = '',
     },
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'sh',
+    callback = function()
+        vim.lsp.start({
+            name = 'bash-language-server',
+            cmd = { 'bash-language-server', 'start' },
+        })
+    end,
 })
