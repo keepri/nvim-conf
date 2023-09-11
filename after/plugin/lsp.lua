@@ -8,6 +8,10 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 lsp.preset('recommended')
 
+lspconfig.sqlls.setup {
+    filetypes = {"sql"},
+}
+
 lspconfig.emmet_language_server.setup({
     filetypes = {
         "html",
