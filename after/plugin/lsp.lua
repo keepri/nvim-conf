@@ -9,7 +9,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 lsp.preset('recommended')
 
 lspconfig.sqlls.setup {
-    filetypes = {"sql"},
+    filetypes = { "sql" },
 }
 
 lspconfig.emmet_language_server.setup({
@@ -56,8 +56,8 @@ lspconfig.phpactor.setup {
 }
 
 lspconfig.gopls.setup {
-    cmd = {"gopls", "serve"},
-    filetypes = {"go", "gomod"},
+    cmd = { "gopls", "serve" },
+    filetypes = { "go", "gomod" },
     root_dir = util.root_pattern("go.work", "go.mod", ".git"),
     settings = {
         gopls = {
@@ -107,6 +107,15 @@ lsp.configure('sumneko_lua', {
         }
     }
 })
+
+lspconfig.clangd.setup {
+    capabilities = {
+        textDocument = {
+            formatting = true,
+        },
+    },
+    filetypes = { "c", "cpp" }
+}
 
 lsp.setup_nvim_cmp({ mapping = cmp_mappings })
 

@@ -22,6 +22,7 @@ require('packer').startup(function(use)
             require("catppuccin").setup {}
         end
     }
+
     use {
         'olivercederborg/poimandres.nvim',
         config = function()
@@ -84,6 +85,7 @@ require('packer').startup(function(use)
     use { 'theprimeagen/harpoon' }
     use { 'mbbill/undotree' }
     use { 'tpope/vim-fugitive' }
+
     -- use {
     --     'preservim/nerdtree',
     --     config = function()
@@ -105,7 +107,6 @@ require('packer').startup(function(use)
     }
 
     use { 'feline-nvim/feline.nvim' }
-
     use { 'captbaritone/better-indent-support-for-php-with-html' }
 end)
 
